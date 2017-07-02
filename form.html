@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <meta name="viewport" content="width=device-width" />
+    <meta charset="UTF-8" />
+    <style>
+    @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic);
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-box-sizing: border-box ;
+      -moz-box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+      -moz-font-smoothing: antialiased;
+      -o-font-smoothing: antialiased;
+      font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+
+    body {
+      font-family: "Roboto", Helvetica, Arial, sans-serif;
+      font-weight: 100;
+      font-size: 12px;
+      line-height: 30px;
+      color: #777;
+      background: #739FC3;
+    }
+
+    .container {
+      max-width: 650px;
+      width: 100%;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    #contact input[type="text"],
+    #contact input[type="email"],
+    #contact input[type="tel"],
+    #contact input[type="url"],
+    #contact textarea,
+    #contact button[type="submit"] {
+      font: 400 13px/16px "Roboto", Helvetica, Arial, sans-serif;
+    }
+
+    input[type="file"] {
+      width: 100%;
+      margin-bottom: 5px;
+    }
+
+    input[type="file"]::-webkit-file-upload-button{
+      cursor: pointer;
+      background: #F9F9F9;
+      border: 1px solid #ccc;
+      margin-right: 10px;
+      font-size: 12px;
+      padding: 10px;
+    }
+
+    @media( max-width: 450px ){
+      #contact {
+        margin: 10px 10px !important;
+      }
+    }
+
+    #contact {
+      background: #F9F9F9;
+      padding: 25px;
+      margin: 15px 15px;
+      box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    }
+
+    #contact h3 {
+      display: block;
+      font-size: 30px;
+      font-weight: 300;
+      margin-bottom: 15px;
+    }
+
+    .header {
+      font-weight: 600;
+      font-size: 14px;
+      padding-bottom: 15px;
+    }
+
+    .introduction {
+      margin: 5px 0 15px;
+      display: block;
+      font-size: 13px;
+      font-weight: 400;
+    }
+
+    fieldset {
+      border: medium none !important;
+      margin: 0 0 10px;
+      min-width: 100%;
+      padding: 0;
+      width: 100%;
+    }
+
+    #contact input[type="text"],
+    #contact input[type="email"],
+    #contact input[type="tel"],
+    #contact input[type="url"],
+    #contact textarea {
+      width: 100%;
+      border: 1px solid #ccc;
+      background: #FFF;
+      margin: 0 0 5px;
+      padding: 10px;
+    }
+
+    #contact input[type="text"]:hover,
+    #contact input[type="email"]:hover,
+    #contact input[type="tel"]:hover,
+    #contact input[type="url"]:hover,
+    #contact textarea:hover {
+      -webkit-transition: border-color 0.3s ease-in-out;
+      -moz-transition: border-color 0.3s ease-in-out;
+      transition: border-color 0.3s ease-in-out;
+      border: 1px solid #aaa;
+    }
+
+    #contact textarea {
+      height: 100px;
+      max-width: 100%;
+      resize: none;
+    }
+
+    #contact button[type="submit"] {
+      cursor: pointer;
+      width: 100%;
+      border: none;
+      background: #326691;
+      color: #FFF;
+      margin: 0 0 5px;
+      padding: 10px;
+      font-size: 15px;
+      height: 100%;
+    }
+
+    #contact button[type="submit"]:hover {
+      background: #739FC3;
+      -webkit-transition: background 0.3s ease-in-out;
+      -moz-transition: background 0.3s ease-in-out;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    #contact button[type="submit"]:active {
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+    }
+
+    #contact input:focus,
+    #contact textarea:focus {
+      outline: 0;
+      border: 1px solid #aaa;
+    }
+
+    ::-webkit-input-placeholder {
+      color: #888;
+    }
+
+    :-moz-placeholder {
+      color: #888;
+    }
+
+    ::-moz-placeholder {
+      color: #888;
+    }
+
+    :-ms-input-placeholder {
+      color: #888;
+    }
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <form id="contact" action="" method="post">
+        <h3>Video Upload</h3>
+        <p class="introduction">
+          <span class="header">I’ll ask you know to perform some expressions in specific order and record that. That’s it!</span> <br />
+          The expressions I would like you to do: <br />
+          1. <b> Neutral face </b> - just relax all your muscles <br />
+          2. <b> Happiness </b> - just smile <br />
+          3. <b> Sadness </b> - pretend to be sad, pull corners of your mouth down a little <br />
+          4. <b> Surprise </b> - open your eyes widely, pull your brows up and open your mouth <br />
+          5. <b> Fear </b> - open your eyes, pull your brows up, stretch your mouth <br />
+          6. <b> Anger </b> - Tight your lids, pull brows down, tight your lips <br />
+          7. <b> Disgust </b> - make wrinkles on your nose, slightly pull corners of your lips down <br />
+          8. <b> Contempt </b> - slightly pull your lips up <br />
+          9. <b> Say O </b> <br />
+          10. <b> Smile and say a vowel </b> <br />
+        </p>
+        <fieldset>
+          <input class="nameInput" placeholder="Your name" type="text" tabindex="1" required autofocus>
+        </fieldset>
+        <fieldset>
+          <input name="picToLoad" type="file" onclick="picUploadJs(this.parentNode)" />
+        </fieldset>
+        <fieldset>
+          <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+        </fieldset>
+      </form>
+    </div>
+  </body>
+</html>
+
+

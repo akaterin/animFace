@@ -37,14 +37,36 @@ class ActionUnitsLoadOperator(bpy.types.Operator):
                 label, value = actionUnit
                 currentState["Mfa" + label] = value
             dissapearingActionUnts = list(set(prevState.keys()) - currentState.keys())
-            #TODO Should I set zero for new ones?
+            newActionUnits = list(set(currentState.keys() - prevState.keys()))
             for dissapearingAU in dissapearingActionUnts:
                 currentState[dissapearingAU] = 0.0
             for label, value in currentState.items():
                 obj = context.scene.objects.active
+                if (label in newActionUnits) and frameNo != 0:
+                    obj[label] = 0.0
+                    obj.keyframe_insert(data_path='["' + label + '"]', frame=frameNo)
                 obj[label] = value
-                obj.keyframe_insert(data_path='["' + label + '"]', frame=frameNo)
+                obj.keyframe_insert(data_path='["' + label + '"]', frame=frameNo+1)
             prevState = currentState
+
+class ActionUnitsCleaner(bpy.types.Operator):
+    bl_label = "Reset"
+    bl_idname = "object.action_units_cleaner"
+
+    def execute(self, context):
+        print("Cleaning action units...")
+        obj = context.scene.objects.active
+        for frameNo in range(0, context.scene.frame_end):
+            for key in obj.keys():
+                if key[0:3] != "Mfa":
+                    continue
+                try:
+                  result = obj.keyframe_delete(data_path='["'+ key +'"]', frame=frameNo)
+                  if result:
+                      print(key)
+                except:
+                  pass
+        return {'FINISHED'}
 
 class VideoAnimationPanel(bpy.types.Panel):
     """Creates a Panel in the Object properties window"""
@@ -66,13 +88,18 @@ class VideoAnimationPanel(bpy.types.Panel):
         props = layout.operator(ActionUnitsLoadOperator.bl_idname)
         props.filename = obj.filename
 
+        row = layout.row()
+        props = layout.operator(ActionUnitsCleaner.bl_idname)
+
 def register():
     bpy.utils.register_class(ActionUnitsLoadOperator)
+    bpy.utils.register_class(ActionUnitsCleaner)
     bpy.utils.register_class(VideoAnimationPanel)
     bpy.types.Object.filename = bpy.props.StringProperty()
 
 def unregister():
     bpy.utils.unregister_class(ActionUnitsLoadOperator)
+    bpy.utils.unregister_class(ActionUnitsCleaner)
     bpy.utils.unregister_class(VideoAnimationPanel)
     del bpy.types.Object.filename
 
