@@ -12,8 +12,8 @@
 # 17, Chin riser: ChinForward :( :( :(
 # 20, Lip strecher: MouthLeftPullSide, MouthLeftPullSide
 # 23, Lip tightener: LipKiss
-# 25, Lips part: LowerLipDown
-# 26, Jaw drop: JawDrop
+# 25, Lips part: LowerLipDown, NEW: JawDrop
+# 26, Jaw drop: JawDrop, NEW: ChinDown
 # 28, Lip suck:lowerLipBackward, UpperLipBackward, lowerLipUp
 # 45, Blink: LeftUpperLidClosed, RightUpperLidClosed
 
@@ -35,8 +35,8 @@ class AuBlenderMapper:
                 '17': [('ChinForward', 1)],
                 '20': [('MouthLeftPullSide', 1), ('MouthLeftPullSide', 1)],
                 '23': [('LipKiss', 1)],
-                '25': [('LowerLipDown', 1)],
-                '26': [('JawDrop', 1)],
+                '25': [('JawDrop', 1), ('UpperLipUp', 1.5)],
+                '26': [('ChinDown', 1)],
                 '28': [('lowerLipBackward', 1), ('UpperLipBackward', 1), ('lowerLipUp', 1)],
                 '45': [('LeftUpperLidClosed', 1), ('RightUpperLidClosed', 1)]
                 }
